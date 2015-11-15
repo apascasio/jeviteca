@@ -1,6 +1,8 @@
 
 angular.module("webAppJeviteca").controller("AlbumsCtrl", function($scope,Albums){
-    $scope.albums = [];
+
+    $scope.albums = Albums.data;
+
 
 });
 

@@ -1,4 +1,4 @@
-angular.module("webAppJeviteca").controller("AlbumsCtrl", function($scope){
+angular.module("webAppJeviteca").controller("GenresCtrl", function($scope){
     $scope.genres = [];
 
 });

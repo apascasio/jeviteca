@@ -7,13 +7,13 @@ angular.module("webAppJeviteca").config(function($routeProvider){
 
     $routeProvider.when("/albums", {
         controller: "AlbumsCtrl",
-        templateUrl: "views/Albums.html"
-        /*resolve: {
+        templateUrl: "views/Albums.html",
+        resolve: {
             Albums: ["AlbumsProvider", function(AlbumsProvider) {
 
                 return AlbumsProvider.getAlbums();
             }]
-        }*/
+        }
     });
 
     $routeProvider.when("/bands", {
