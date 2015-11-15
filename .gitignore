@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+/.idea
+.idea
+.DS_Store
+*~
+*.swp
+angular.js.tmproj

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Jeviteca</title>
+    <style>
+        body{
+            background-image: url("images/fondo.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+    </style>
+    <link rel="stylesheet" href="styles/css/bootstrap.css">
+    <link rel="stylesheet" href="styles/css/style.css">
+
+
+
+</head>
+
+<body ng-app="webAppJeviteca">
+
+<div class="container">
+
+
+    <div class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="page-header">
+                <h2>Jeviteca aplicación web que lista los mejores álbumes y bandas de metal</h2>
+            </div>
+            <nav >
+            <ul class="nav nav-tabs nav-justified">
+                <li role="presentation" ng-class="{ 'active': rutaAlbumes() }">
+                    <a href="#/albumes">Álbumes</a>
+                </li>
+                <li role="presentation" ng-class="{ 'active': rutaBandas() }">
+                    <a href="#/bandas">Bandas</a>
+                </li>
+                <li role="presentation" ng-class="{ 'active': rutaGeneros() }">
+                    <a href="#/generos">Géneros</a>
+                </li>
+            </ul>
+            </nav>
+            </div>
+    </div>
+
+    <!-- Mcontenedor de contenido principal -->
+    <div id="containerViews">
+    <!-- Contenedor de las vistas -->
+    <section ng-view>
+        <tr>
+            <td>{{
+                "band name"
+                }}</td>
+
+            <td>{{
+                "band origin"
+                }}</td>
+
+            <td>
+
+                <ul>
+
+                    <li
+                            ng-­‐repeat="member in band.member">{{
+                        "member name"
+                        }}</li>
+
+                </ul>
+
+            </td>
+        </tr>
+
+
+
+    </section>
+    </div>
+
+    <div id="footer">
+    <h3>by Andres Pascasio</h3>
+    </div>
+
+</div>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>-->
+<script src="vendor/angular.min.js"></script>
+
+</body>
+</html>
