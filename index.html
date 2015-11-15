@@ -17,6 +17,7 @@
 
 
 
+
 </head>
 
 <body ng-app="webAppJeviteca">
@@ -31,14 +32,14 @@
             </div>
             <nav >
             <ul class="nav nav-tabs nav-justified">
-                <li role="presentation" ng-class="{ 'active': rutaAlbumes() }">
-                    <a href="#/albumes">Álbumes</a>
+                <li role="presentation" ng-class="{ 'active': routeIsAlbums() }">
+                    <a href="#/albums">Álbumes</a>
                 </li>
-                <li role="presentation" ng-class="{ 'active': rutaBandas() }">
-                    <a href="#/bandas">Bandas</a>
+                <li role="presentation" >
+                    <a href="#/bands">Bandas</a>
                 </li>
-                <li role="presentation" ng-class="{ 'active': rutaGeneros() }">
-                    <a href="#/generos">Géneros</a>
+                <li role="presentation" >
+                    <a href="#/genres">Géneros</a>
                 </li>
             </ul>
             </nav>
@@ -49,30 +50,6 @@
     <div id="containerViews">
     <!-- Contenedor de las vistas -->
     <section ng-view>
-        <tr>
-            <td>{{
-                "band name"
-                }}</td>
-
-            <td>{{
-                "band origin"
-                }}</td>
-
-            <td>
-
-                <ul>
-
-                    <li
-                            ng-­‐repeat="member in band.member">{{
-                        "member name"
-                        }}</li>
-
-                </ul>
-
-            </td>
-        </tr>
-
-
 
     </section>
     </div>
@@ -85,6 +62,11 @@
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>-->
 <script src="vendor/angular.min.js"></script>
+<script src="vendor/angular-route.min.js"></script>
+<script src="scripts/app.js"></script>
+
+<!--  Cargar controladores     -->
+<script src="scripts/controllers/Albums_controller.js"></script>
 
 </body>
 </html>
