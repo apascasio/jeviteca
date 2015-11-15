@@ -18,12 +18,26 @@ angular.module("webAppJeviteca").config(function($routeProvider){
 
     $routeProvider.when("/bands", {
         controller: "BandsCtrl",
-        templateUrl: "views/Bands.html"
+        templateUrl: "views/Bands.html",
+        resolve: {
+            Bands: ["BandsProvider", function(BandsProvider) {
+
+                return BandsProvider.getBands();
+            }]
+        }
     });
 
     $routeProvider.when("/genres", {
         controller: "GenresCtrl",
-        templateUrl: "views/Genres.html"
+        templateUrl: "views/Genres.html",
+        resolve: {
+
+            Genres: ["GenresProvider", function(GenresProvider) {
+
+                return GenresProvider.getGenres();
+            }]
+        }
+
     });
 
 

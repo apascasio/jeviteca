@@ -1,4 +1,5 @@
-angular.module("webAppJeviteca").controller("BandsCtrl", function($scope){
-    $scope.bands = [];
+angular.module("webAppJeviteca").controller("BandsCtrl",["$scope", "Bands", function($scope, Bands){
 
-});
+    $scope.bands = Bands.data;
+
+}]);

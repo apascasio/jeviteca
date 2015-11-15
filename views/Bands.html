@@ -2,31 +2,44 @@
 <div class="table-responsive">
 
     <table class="table table-striped">
-
-        <th>
-            Grupo
-        </th>
-        <th>
-            Nombre
-        </th>
-        <th>
-            Origen
-        </th>
-        <th>
-            Nº componentes
-        </th>
-        <th>
-            Nº álbums
-        </th>
-        <th>
-            Miembros
-        </th>
-        <th>
-            Favorito
-        </th>
+        <thead>
+        <tr>
+            <th>Grupo</th>
+            <th>Nombre</th>
+            <th>Origen</th>
+            <th>Nº componentes</th>
+            <th>Nº álbums</th>
+            <th>Miembros</th>
+            <th>Favorito</th>
+        </tr>
+        </thead>
 
         <tbody>
-        <tr ></tr>
+        <tr ng-repeat="band in bands">
+
+            <td>
+                <img ng-src="resources/img/{{band.photo}}" class="img-circle">
+            </td>
+            <td>
+                <a class="navbar-custom" ng-href="#/bands/{{ band.id}}/details" title="Detalle de la banda">{{ band.name}}</a>
+            </td>
+            <td>
+                {{ band.origin}}
+            </td>
+            <td>
+                {{ band.members.length}}
+            </td>
+            <td>
+                {{ band.albums.length}}
+            </td>
+            <td>
+                <p ng-repeat="member in model.members | orderBy:'name'">{{member.name}}</p>
+            </td>
+            <td>
+                <span artcc-favorites id-album="band.name"></span>
+            </td>
+
+        </tr>
         </tbody>
 
     </table>

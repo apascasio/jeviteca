@@ -1,33 +1,29 @@
 
 
 <div class="table-responsive">
-    <h3 class="title">Álbums</h3>
-
 
 
     <table class="table table-striped">
-
-        <th>
-            Portada
-        </th>
-        <th>
-            Título
-        </th>
-        <th>
-            Grupo
-        </th>
-        <th>
-            Género
-        </th>
-        <th>
-            Año
-        </th>
-        <th>
-            Favorito
-        </th>
+        <thead>
+        <tr>
+            <th> Portada</th>
+            <th>Título</th>
+            <th>Grupo</th>
+            <th>Género</th>
+            <th>Año</th>
+            <th>Favorito</th>
+        </tr>
+        </thead>
 
         <tbody>
-        <tr  ng-repeat="album in albums"></tr>
+        <tr  ng-repeat="album in albums">
+            <td><img ng-src="resources/img/{{album.image}}" class="img-circle"></td>
+            <td> {{album.title}}</td>
+            <td>{{ album.band.name }}</td>
+            <td>{{ album.genre.name }}</td>
+            <td>{{ album.year}}</td>
+            <td><span artcc-favorites id-album="model.id"></span></td>
+        </tr>
 
         </tbody>
 
