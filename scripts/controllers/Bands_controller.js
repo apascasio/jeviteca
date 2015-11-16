@@ -1,5 +1,5 @@
-angular.module("webAppJeviteca").controller("BandsCtrl",["$scope", "Bands", function($scope, Bands){
+angular.module("webAppJeviteca").controller("BandsCtrl",["$scope", "Bands","$filter", function($scope, Bands, $filter){
 
-    $scope.bands = Bands.data;
+    $scope.bands = $filter("orderBy")( Bands.data, "name");
 
 }]);

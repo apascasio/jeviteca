@@ -1,5 +1,5 @@
-angular.module("webAppJeviteca").controller("GenresCtrl",["$scope", "Genres", function($scope, Genres){
+angular.module("webAppJeviteca").controller("GenresCtrl",["$scope", "Genres","$filter", function($scope, Genres, $filter){
 
-    $scope.genres = Genres.data;
+    $scope.genres = $filter("orderBy")(Genres.data,"name");
 
 }]);

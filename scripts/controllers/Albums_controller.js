@@ -1,7 +1,6 @@
 
-angular.module("webAppJeviteca").controller("AlbumsCtrl",["$scope", "Albums",  function($scope,Albums){
-    $scope.albums = Albums.data;
-
+angular.module("webAppJeviteca").controller("AlbumsCtrl",["$scope", "Albums","$filter",  function($scope,Albums ,$filter){
+    $scope.albums = $filter("orderBy")( Albums.data, "-year");
 
 }]);
 

@@ -1,4 +1,7 @@
 
+<!-- buscador -->
+Search: <input ng-model="query">
+
 
 <div class="table-responsive">
 
@@ -16,7 +19,7 @@
         </thead>
 
         <tbody>
-        <tr  ng-repeat="album in albums">
+        <tr  ng-repeat="album in albums | filter:query" >
             <td><img ng-src="resources/img/{{album.image}}" class="img-circle"></td>
             <td> {{album.title}}</td>
             <td>{{ album.band.name }}</td>

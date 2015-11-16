@@ -1,0 +1,25 @@
+<div align="right">
+    <button class="button-custom" ng-click="fn.goBack()">Volver atrás</button>
+</div>
+
+<article class="articles-custom">
+
+    <section>
+        <div class="col-md-4">
+            <div class="bs-callout bs-callout-primary">
+                <h3 class="h3-custom">Nombre:</h3>
+                <h4>{{ band.name }} </h4>
+                <h3 class="h3-custom">Origen:</h3>
+                <h4>{{ band.origin}}</h4>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="bs-callout bs-callout-success">
+                <img  ng-src="resources/img/{{band.photo}}">
+            </div>
+        </div>
+
+
+    </section>
+</article>

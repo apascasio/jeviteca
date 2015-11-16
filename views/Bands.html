@@ -1,3 +1,5 @@
+<!-- buscador -->
+Search: <input ng-model="query">
 
 <div class="table-responsive">
 
@@ -15,7 +17,7 @@
         </thead>
 
         <tbody>
-        <tr ng-repeat="band in bands">
+        <tr ng-repeat="band in bands | filter:query">
 
             <td>
                 <img ng-src="resources/img/{{band.photo}}" class="img-circle">

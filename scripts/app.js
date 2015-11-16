@@ -40,6 +40,28 @@ angular.module("webAppJeviteca").config(function($routeProvider){
 
     });
 
+/*    $routeProvider.when("/albums/:id/details", {
+        controller: "DetailAlbumCtrl",
+        templateUrl: "views/DetailAlbum.html",
+        resolve: {
+            Album: ["AlbumsProvider", "$routeParams", function(AlbumsProvider, $routeParams) {
+
+                return AlbumsProvider.getAlbumById($routeParams.id);
+            }]
+        }
+    });*/
+
+
+    $routeProvider.when("/bands/:id/details", {
+        controller: "DetailBandCtrl",
+        templateUrl: "views/DetailBand.html",
+        resolve: {
+            Album: ["BandsProvider", "$routeParams", function(BandsProvider, $routeParams) {
+
+                return BandsProvider.getBandById($routeParams.id);
+            }]
+        }
+    });
 
     $routeProvider.otherwise({
         redirectTo:"/albums"
