@@ -1,18 +1,10 @@
-<div align="right">
-    <button class="button-custom" ng-click="fn.goBack()">Volver atrás</button>
-</div>
+<div class="container">
 
-<article class="articles-custom">
+    <div class="page-header" align="left">
+        <button class="label label-primary" ng-click="fn.goBack()">Volver atrás</button>
+    </div>
 
     <section>
-        <div class="col-md-4">
-            <div class="bs-callout bs-callout-primary">
-                <h3 class="h3-custom">Nombre:</h3>
-                <h4>{{ band.name }} </h4>
-                <h3 class="h3-custom">Origen:</h3>
-                <h4>{{ band.origin}}</h4>
-            </div>
-        </div>
 
         <div class="col-md-4">
             <div class="bs-callout bs-callout-success">
@@ -21,5 +13,25 @@
         </div>
 
 
+        <div class="col-md-4">
+            <div class="bs-callout bs-callout-primary">
+                <h3 class="h3-custom">Nombre:</h3>
+                <h4>{{ band.name }} </h4>
+                <h3 class="h3-custom">Miembros:</h3>
+                <h4 ><p ng-repeat="member in band.members | orderBy:'name'">{{member.name}}</p> </h4>
+                <h3 class="h3-custom">Origen:</h3>
+                <h4>{{ band.origin}}</h4>
+
+            </div>
+        </div>
+
+        <div class="cold-md-4">
+            <div class="bs-callout bs-callout-primary">
+                <h3 class="h3-custom">Albums:</h3>
+                <h4><p ng-repeat="album in band.albums | orderBy:'name'">{{ album.title}} Año {{album.year}}</p></h4>
+            </div>
+
+        </div>
+
     </section>
-</article>
+</div>

@@ -20,5 +20,4 @@ angular.module("webAppJeviteca").service("BandsProvider", [ "$http", "$q", "$fil
         return deferred.promise;
     }
 
-
 }]);

@@ -56,7 +56,7 @@ angular.module("webAppJeviteca").config(function($routeProvider){
         controller: "DetailBandCtrl",
         templateUrl: "views/DetailBand.html",
         resolve: {
-            Album: ["BandsProvider", "$routeParams", function(BandsProvider, $routeParams) {
+            Band: ["BandsProvider", "$routeParams", function(BandsProvider, $routeParams) {
 
                 return BandsProvider.getBandById($routeParams.id);
             }]

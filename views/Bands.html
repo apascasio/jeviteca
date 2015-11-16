@@ -35,7 +35,7 @@ Search: <input ng-model="query">
                 {{ band.albums.length}}
             </td>
             <td>
-                <p ng-repeat="member in model.members | orderBy:'name'">{{member.name}}</p>
+                <p ng-repeat="member in band.members | orderBy:'name'">{{member.name}}</p>
             </td>
             <td>
                 <span artcc-favorites id-album="band.name"></span>
