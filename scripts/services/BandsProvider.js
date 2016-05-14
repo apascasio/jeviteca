@@ -1,8 +1,8 @@
-angular.module("webAppJeviteca").service("BandsProvider", [ "$http", "$q", "$filter", function($http,$q,$filter) {
+angular.module("webAppJeviteca").service("BandsProvider",  function($q, $filter, $http, Configuracion) {
     this.getBands = function() {
 
-        var datos = $http.get("resources/data/bands.json");
-        return datos;
+        return $http.get(Configuracion.routeData +"bands.json");
+
 
     };
 
@@ -10,7 +10,7 @@ angular.module("webAppJeviteca").service("BandsProvider", [ "$http", "$q", "$fil
 
         var deferred = $q.defer();
 
-        $http.get("resources/data/bands.json").then(function(data) {
+        $http.get(Configuracion.routeData + "bands.json").then(function(data) {
 
             var element = $filter("filter")(data.data, {"id": bandId})[0];
 
@@ -20,4 +20,4 @@ angular.module("webAppJeviteca").service("BandsProvider", [ "$http", "$q", "$fil
         return deferred.promise;
     }
 
-}]);
+});

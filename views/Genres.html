@@ -1,9 +1,12 @@
-<!-- buscador -->
+<!-- buscador
 Search: <input ng-model="query">
+-->
+Search: <input ng-model="filtro.name"/>
 <div class="table-responsive">
 
 
     <table class="table table-striped">
+        <box-search ng-model="filtro.title"></box-search>
         <thead>
         <tr>
             <th>Nombre</th>
@@ -15,19 +18,10 @@ Search: <input ng-model="query">
 
 
         <tbody>
-        <tr  ng-repeat="genre in genres | filter:query" >
+        <tr  ng-repeat="genre in genres | filter:filtro" entity-genres genre="genre" >
 
-            <td>
-                {{ genre.name }}
-            </td>
-            <td>
-                {{ genre.albums.length }}
-            </td>
-            <td > <p ng-repeat="album in genre.albums">
-                {{album.title}}
-                </p>
-            </td>
-            <td></td>
+
+
 
         </tr>
 

@@ -1,5 +1,7 @@
-<!-- buscador -->
+<!-- buscador
 Search: <input ng-model="query">
+-->
+Search: <input ng-model="filtro.name"/>
 
 <div class="table-responsive">
 
@@ -17,29 +19,9 @@ Search: <input ng-model="query">
         </thead>
 
         <tbody>
-        <tr ng-repeat="band in bands | filter:query">
+        <tr ng-repeat="band in bands | filter:filtro" entity-band band="band">
 
-            <td>
-                <img ng-src="resources/img/{{band.photo}}" class="img-circle">
-            </td>
-            <td>
-                <a class="navbar-custom" ng-href="#/bands/{{ band.id}}/details" title="Detalle de la banda">{{ band.name}}</a>
-            </td>
-            <td>
-                {{ band.origin}}
-            </td>
-            <td>
-                {{ band.members.length}}
-            </td>
-            <td>
-                {{ band.albums.length}}
-            </td>
-            <td>
-                <p ng-repeat="member in band.members | orderBy:'name'">{{member.name}}</p>
-            </td>
-            <td>
-                <span artcc-favorites id-album="band.name"></span>
-            </td>
+
 
         </tr>
         </tbody>

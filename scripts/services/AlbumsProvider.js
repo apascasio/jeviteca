@@ -1,15 +1,15 @@
-angular.module("webAppJeviteca").service("AlbumsProvider", [ "$http", "$q", "$filter",function($http,$q,$filter) {
+angular.module("webAppJeviteca").service("AlbumsProvider", function($q, $filter, $http, Configuracion) {
         this.getAlbums = function() {
 
-            var datos = $http.get("resources/data/albums.json");
-            return datos;
+            return $http.get(Configuracion.routeData +"albums.json");
+
 
             };
 
 
         this.getAlbumById = function(albumId) {
             var deferred = $q.defer();
-            $http.get("resources/data/albums.json").then(function(data) {
+            $http.get(Configuracion.routeData +"albums.json").then(function(data) {
                 var element = $filter("filter")(data.data, {"id": albumId})[0];
                 deferred.resolve(element);
             });
@@ -20,4 +20,4 @@ angular.module("webAppJeviteca").service("AlbumsProvider", [ "$http", "$q", "$fi
 
 
 
-}]);
+});

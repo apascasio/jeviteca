@@ -1,72 +1,64 @@
+angular.module("webAppJeviteca", ["ngRoute", "route-segment", "view-segment"]);
+
+angular
+    .module("webAppJeviteca")
+    .config(["$routeProvider", "$routeSegmentProvider", function($routeProvider, $routeSegmentProvider) {
 
 
+    $routeSegmentProvider.when("/bands", "bands");
+    $routeSegmentProvider.when("/bands/:id/details", "details_band");
+    $routeSegmentProvider.when("/albums", "albums");
+    $routeSegmentProvider.when("/genres", "genres");
 
-angular.module("webAppJeviteca", ["ngRoute"]);
 
-angular.module("webAppJeviteca").config(function($routeProvider){
-
-    $routeProvider.when("/albums", {
+    $routeSegmentProvider.segment("albums", {
         controller: "AlbumsCtrl",
         templateUrl: "views/Albums.html",
         resolve: {
             Albums: ["AlbumsProvider", function(AlbumsProvider) {
-
                 return AlbumsProvider.getAlbums();
             }]
         }
     });
 
-    $routeProvider.when("/bands", {
+    $routeSegmentProvider.segment("bands", {
         controller: "BandsCtrl",
         templateUrl: "views/Bands.html",
         resolve: {
             Bands: ["BandsProvider", function(BandsProvider) {
-
                 return BandsProvider.getBands();
             }]
         }
     });
 
-    $routeProvider.when("/genres", {
-        controller: "GenresCtrl",
-        templateUrl: "views/Genres.html",
+    $routeSegmentProvider.segment("details_band", {
+        controller: "DetailBandCtrl",
+        templateUrl: "views/DetailBands.html",
         resolve: {
-
-            Genres: ["GenresProvider", function(GenresProvider) {
-
-                return GenresProvider.getGenres();
+            Band: ["$routeParams", "BandsProvider", function($routeParams, BandsProvider) {
+                return BandsProvider.getBandById($routeParams.id);
             }]
         }
 
     });
 
-/*    $routeProvider.when("/albums/:id/details", {
-        controller: "DetailAlbumCtrl",
-        templateUrl: "views/DetailAlbum.html",
+
+
+
+
+
+    $routeSegmentProvider.segment("genres", {
+        controller: "GenresCtrl",
+        templateUrl: "views/Genres.html",
         resolve: {
-            Album: ["AlbumsProvider", "$routeParams", function(AlbumsProvider, $routeParams) {
-
-                return AlbumsProvider.getAlbumById($routeParams.id);
-            }]
-        }
-    });*/
-
-
-    $routeProvider.when("/bands/:id/details", {
-        controller: "DetailBandCtrl",
-        templateUrl: "views/DetailBand.html",
-        resolve: {
-            Band: ["BandsProvider", "$routeParams", function(BandsProvider, $routeParams) {
-
-                return BandsProvider.getBandById($routeParams.id);
+            Genres: ["GenresProvider", function(GenresProvider) {
+                return GenresProvider.getGenres();
             }]
         }
     });
 
     $routeProvider.otherwise({
-        redirectTo:"/albums"
+        redirectTo: "/genres"
     });
 
-});
-
-
+}]);

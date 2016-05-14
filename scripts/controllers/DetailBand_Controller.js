@@ -1,4 +1,4 @@
-angular.module("webAppJeviteca").controller("DetailBandCtrl", ["$scope", "Band", "$window", function ($scope, Band, $window) {
+angular.module("webAppJeviteca").controller("DetailBandCtrl", function($scope, $window, Band, Configuracion) {
 
     $scope.band = Band;
 
@@ -9,5 +9,5 @@ angular.module("webAppJeviteca").controller("DetailBandCtrl", ["$scope", "Band",
     };
 
 
-    }]);
+    });
 

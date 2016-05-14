@@ -1,7 +1,8 @@
 
-<!-- buscador -->
+<!-- buscador
 Search: <input ng-model="query">
-
+-->
+Search: <input ng-model="filtro.title"/>
 
 <div class="table-responsive">
 
@@ -19,16 +20,13 @@ Search: <input ng-model="query">
         </thead>
 
         <tbody>
-        <tr  ng-repeat="album in albums | filter:query" >
-            <td><img ng-src="resources/img/{{album.image}}" class="img-circle"></td>
-            <td> {{album.title}}</td>
-            <td>{{ album.band.name }}</td>
-            <td>{{ album.genre.name }}</td>
-            <td>{{ album.year}}</td>
-            <td><span artcc-favorites id-album="model.id"></span></td>
-        </tr>
 
+        <tbody>
+        <tr ng-repeat="album in albumes | filter:filtro" entity-album album="album">
+
+        </tr>
         </tbody>
+
 
     </table>
 
